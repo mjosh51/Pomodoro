@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="css/pmdr.css" />
+</head>
+
+<body>
+  <main class="app">
+    <div class="timer">
+      <div class="button-group" id="mode-buttons-js">
+        <button data-mode="pomodoro" class="button active mode-button" id="pomodoro-js">
+          Pomodoro
+        </button>
+        <button data-mode="shortBreak" class="button mode-button" id="short-break-js">
+          Short break
+        </button>
+        <button data-mode="longBreak" class="button mode-button" id="long-break-js">
+          Long break
+        </button>
+      </div>
+      <div class="quads">
+        <div class="same quad1"></div>
+        <div class="same quad2"></div>
+        <div class="same quad3"></div>
+        <div class="same quad4"></div>
+        <div class="clock" id="clock-js">
+          <span id="minutes-js">25</span>
+          <span class="separator">:</span>
+          <span id="seconds-js">00</span>
+        </div>
+      </div>
+        
+      <div class="button-down">
+        <button class="start-button" data-action="start" id="btn-js">
+          Start
+        </button>
+        <button class="ask-button" id="ask-js">
+          Notification
+        </button>
+      </div>
+      
+      <p>You must either allow or disallow notification first before starting the timer. <br><span>Also note that clicking the notification button restores the timer to default.</span></p>
+    </div>
+  </main>
+  <div class="hidden">
+    <audio src="media/backtowork.mp3" data-sound="pomodoro"></audio>
+    <audio src="media/break.mp3" data-sound="shortBreak"></audio>
+    <audio src="media/break.mp3" data-sound="longBreak"></audio>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

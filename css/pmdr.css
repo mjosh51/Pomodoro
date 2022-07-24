@@ -1,0 +1,209 @@
+/* Styles */
+
+/**
+ *
+ * Inheriting box sizing slightly better best-practice
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ *
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pomodoro: hsla(5, 91%, 50%, 0.7);
+  --shortBreak: rgba(62, 10, 04, 0.8);
+  --longBreak: rgba(04, 62, 28, 0.7);
+}
+
+body {
+  background-color: var(--pomodoro);
+  transition: background-color 1s ease;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+  user-select: none;
+}
+
+.app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.timer {
+  padding: 20px;
+  text-align: center;
+}
+
+
+.clock {
+  margin-top: 50px;
+  font-size: 3rem;
+  line-height: 1;
+  display: flex;
+  margin-left: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+}
+
+.mode-button {
+  font-size: 16px;
+  height: 28px;
+  cursor: pointer;
+  box-shadow: none;
+  font-weight: 300;
+  color: #fff;
+  border: 1px solid transparent;
+  margin: 0px;
+  border-radius: 4px;
+  padding: 2px 12px;
+  background: none;
+}
+
+.mode-button.active {
+  border-color: #fff;
+}
+
+.start-button {
+  cursor: pointer;
+  box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+  font-size: 22px;
+  height: 55px;
+  text-transform: uppercase;
+  color: hsl(175, 26%, 41%);
+  font-weight: bold;
+  width: 200px;
+  background-color: white;
+  border-width: initial;
+  border-style: none;
+  margin: 20px 0px 0px;
+  padding: 0px 12px;
+  border-radius: 4px;
+  transition: color 0.5s ease-in-out 0s;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+}
+
+.ask-button {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 0px;
+  font-size: 16px;
+  height: 55px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-width: initial;
+  border-style: none;
+  margin: 20px 0px 0px;
+  padding: 0px 12px;
+  border-radius: 4px;
+  transition: color 0.5s ease-in-out 0s;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+.button-down {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Button goes down by `6px` when active class is toggled */
+.start-button.active, .ask-button.active {
+  transform: translateY(6px);
+  box-shadow: none;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+p {
+  margin: 20px 0;
+}
+
+.quads {
+  box-sizing: border-box;
+  position: relative;
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+  margin: 40px auto;
+  background: beige;
+  background-clip: content-box;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 20px transparent, 0px 0px 0px 20px beige;
+}
+
+.quads::before {
+  position: absolute;
+  content: attr(data-progress);
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  text-align: center;
+  line-height: 200px;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.quads > div {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  background: beige;
+  border-radius: 0%;
+}
+
+.quad1 {
+  top: 0px;
+  left: 50%;
+  transform-origin: left bottom;
+  transform: skew(0deg);
+  /* negative */
+}
+
+.quad2 {
+  top: 50%;
+  left: 50%;
+  transform-origin: left bottom;
+  transform: skewY(0deg);
+}
+
+.quad3 {
+  top: 50%;
+  left: 0%;
+  transform-origin: right top;
+  transform: skew(0deg);
+  /* negative */
+}
+
+.quad4 {
+  top: 0%;
+  left: 0%;
+  transform-origin: right bottom;
+  transform: skewY(0deg);
+}
+
+/* End **********************************************
+*****P******O******M******O******D******R******O*********
+/

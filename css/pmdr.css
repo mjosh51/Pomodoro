@@ -20,16 +20,19 @@ html {
 }
 
 :root {
-  --pomodoro: hsla(5, 91%, 50%, 0.7);
-  --shortBreak: rgba(62, 10, 04, 0.8);
+  --pomodoro: rgba(100, 10, 0, 0.7);
+  --shortBreak: rgba(50, 31, 7, 0.7);
   --longBreak: rgba(04, 62, 28, 0.7);
 }
 
 body {
-  background-color: var(--pomodoro);
-  transition: background-color 1s ease;
+  /* background-color: var(--pomodoro);
+  transition: background-color 1s ease; */
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
   user-select: none;
+  width: 100%;
+  height: 100vh;
 }
 
 .app {
@@ -38,21 +41,20 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  height: 100vh;
+  background-color: var(--pomodoro);
+  transition: background-color 1s ease;
+  overflow: auto;
 }
 
 .timer {
+  margin-top: 2rem;
   padding: 20px;
   text-align: center;
-}
-
-
-.clock {
-  margin-top: 50px;
-  font-size: 3rem;
-  line-height: 1;
-  display: flex;
-  margin-left: 15px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .mode-button {
@@ -73,6 +75,80 @@ body {
   border-color: #fff;
 }
 
+.time-circle {
+  box-sizing: border-box;
+  position: relative;
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+  margin: 40px auto;
+  background: beige;
+  background-clip: content-box;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 20px transparent, 0px 0px 0px 20px beige;
+}
+
+.time-circle:before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  text-align: center;
+  line-height: 200px;
+  border-radius: 50%;
+  /* z-index: 4; */
+}
+
+.same {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  background: beige;
+  border-radius: 0%;
+}
+
+.quad1 {
+  top: 0px;
+  left: 50%;
+  transform-origin: left bottom;
+  transform: skew(0deg);
+  /* negative */
+}
+
+.quad2 {
+  top: 50%;
+  left: 50%;
+  transform-origin: left bottom;
+  transform: skewY(0deg);
+}
+
+.quad3 {
+  top: 50%;
+  left: 0%;
+  transform-origin: right top;
+  transform: skew(0deg);
+  /* negative */
+}
+
+.quad4 {
+  top: 0%;
+  left: 0%;
+  transform-origin: right bottom;
+  transform: skewY(0deg);
+}
+
+.clock {
+  margin-top: 50px;
+  font-size: 3rem;
+  line-height: 1;
+  display: flex;
+  margin-left: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+  position: relative;
+}
+
 .start-button {
   cursor: pointer;
   box-shadow: rgb(235, 235, 235) 0px 6px 0px;
@@ -85,7 +161,6 @@ body {
   background-color: white;
   border-width: initial;
   border-style: none;
-  margin: 20px 0px 0px;
   padding: 0px 12px;
   border-radius: 4px;
   transition: color 0.5s ease-in-out 0s;
@@ -136,73 +211,13 @@ button:active {
 }
 
 p {
-  margin: 20px 0;
+  padding: 0 2rem;
+  background: rgb(232, 14, 14) transparent;
+  opacity: 1;
+  color: rgb(103, 99, 99);
 }
 
-.quads {
-  box-sizing: border-box;
-  position: relative;
-  height: 200px;
-  width: 200px;
-  padding: 20px;
-  margin: 40px auto;
-  background: beige;
-  background-clip: content-box;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: inset 0px 0px 0px 20px transparent, 0px 0px 0px 20px beige;
-}
 
-.quads::before {
-  position: absolute;
-  content: attr(data-progress);
-  height: 100%;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  text-align: center;
-  line-height: 200px;
-  border-radius: 50%;
-  z-index: 4;
-}
-
-.quads > div {
-  position: absolute;
-  height: 50%;
-  width: 50%;
-  background: beige;
-  border-radius: 0%;
-}
-
-.quad1 {
-  top: 0px;
-  left: 50%;
-  transform-origin: left bottom;
-  transform: skew(0deg);
-  /* negative */
-}
-
-.quad2 {
-  top: 50%;
-  left: 50%;
-  transform-origin: left bottom;
-  transform: skewY(0deg);
-}
-
-.quad3 {
-  top: 50%;
-  left: 0%;
-  transform-origin: right top;
-  transform: skew(0deg);
-  /* negative */
-}
-
-.quad4 {
-  top: 0%;
-  left: 0%;
-  transform-origin: right bottom;
-  transform: skewY(0deg);
-}
 
 /* End **********************************************
 *****P******O******M******O******D******R******O*********

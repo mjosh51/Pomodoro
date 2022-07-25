@@ -1,4 +1,3 @@
-
 // Creating an object to represent the Pomodoro App
 const timer = {
   pomodoro: 1,
@@ -12,8 +11,8 @@ let interval;
 
 
 // Default mode on page load
-const askButton = document.getElementById('ask-js');
-askButton.addEventListener('click', () => {
+// const askButton = document.getElementById('ask-js');
+const permission = () => {
   // Check if browser supports notification,
   // else this code block would not be executed
   if ('Notification' in window) {
@@ -31,7 +30,7 @@ askButton.addEventListener('click', () => {
   }
 
   switchMode('pomodoro');
-});
+};
 
 const getRemainingTime = (endTime) => {
   const currentTime = Date.parse(new Date());
@@ -129,22 +128,22 @@ const rotateProgress = () => {
 
 
   if(progress <= 15){
-    quad1.setAttribute('style', 'transform: skew(' + progress * (-90/15) + 'deg)');
+    quad1.setAttribute('style', 'transform: skew(' + progress * (-90 / 15) + 'deg)');
   }
-  else if(progress > 15 && progress <=30){
+  else if (progress > 15 && progress <= 30){
     quad1.setAttribute('style', 'transform: skew(-90deg)');
-    quad2.setAttribute('style', 'transform: skewY(' + (progress-15) * (90/15) + 'deg)');
+    quad2.setAttribute('style', 'transform: skewY(' + (progress - 15) * (90 / 15) + 'deg)');
   }
-  else if(progress > 30 && progress <=45){
+  else if (progress > 30 && progress <= 45){
     quad1.setAttribute('style', 'transform: skew(-90deg)');
     quad2.setAttribute('style', 'transform: skewY(90deg)');
-    quad3.setAttribute('style', 'transform: skew(' + (progress-30) * (-90/15) + 'deg)');
+    quad3.setAttribute('style', 'transform: skew(' + (progress - 30) * (-90 / 15) + 'deg)');
   }  
-  else if(progress > 45 && progress <90){
+  else if (progress > 45 && progress <= 60){
     quad1.setAttribute('style', 'transform: skew(-90deg)');
     quad2.setAttribute('style', 'transform: skewY(90deg)');
     quad3.setAttribute('style', 'transform: skew(-90deg)');
-    quad4.setAttribute('style', 'transform: skewY(' + (progress-45) * (90/15) + 'deg)');
+    quad4.setAttribute('style', 'transform: skewY(' + (progress - 45) * (90 / 15) + 'deg)');
   }
   
 }
@@ -181,7 +180,8 @@ const switchMode = (mode) => {
     .querySelectorAll('button[data-mode]')
     .forEach(element => element.classList.remove('active'));
   document.querySelector(`[data-mode='${mode}']`).classList.add('active');
-  document.body.style.backgroundColor = `var(--${mode})`;
+  const main = document.querySelector('.app');
+  main.style.backgroundColor = `var(--${mode})`;
   
   document
     .querySelectorAll('.same')
@@ -196,10 +196,8 @@ const handleMode = (e) => {
 
   if (!mode) return;
 
-
+  timer.sessions = 0;
   switchMode(mode);
-  
-  
   stopTimer();
 }
 
@@ -207,6 +205,7 @@ const start = () => {
   const action = startButton.dataset.action;
   if (action === 'start') {
     buttonSound.play();
+    permission();
     startTimer();
   } else {
     stopTimer();
@@ -218,4 +217,3 @@ const startButton = document.querySelector('#btn-js');
 startButton.addEventListener('click', start);
 const modeButtons = document.querySelector('#mode-buttons-js');
 modeButtons.addEventListener('click', handleMode);
-

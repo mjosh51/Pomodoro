@@ -13,7 +13,7 @@
   <main class="app">
     <div class="timer">
       <div class="button-group" id="mode-buttons-js">
-        <button data-mode="pomodoro" class="button active mode-button" id="pomodoro-js">
+        <button data-mode="pomodoro" class="mode-button active" id="pomodoro-js">
           Pomodoro
         </button>
         <button data-mode="shortBreak" class="button mode-button" id="short-break-js">
@@ -23,7 +23,7 @@
           Long break
         </button>
       </div>
-      <div class="quads">
+      <div class="time-circle">
         <div class="same quad1"></div>
         <div class="same quad2"></div>
         <div class="same quad3"></div>
@@ -39,12 +39,10 @@
         <button class="start-button" data-action="start" id="btn-js">
           Start
         </button>
-        <button class="ask-button" id="ask-js">
-          Notification
-        </button>
       </div>
-      
-      <p>You must either allow or disallow notification first before starting the timer. <br><span>Also note that clicking the notification button restores the timer to default.</span></p>
+      <br>
+      <br>
+      <p>Note: You may allow or deny notification. <br><span>This however does not stop the functionality of the app.</span> <br><span>It was added to serve as an enhanced feature.</span></p>
     </div>
   </main>
   <div class="hidden">

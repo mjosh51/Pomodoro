@@ -26,35 +26,30 @@ html {
 }
 
 body {
-  /* background-color: var(--pomodoro);
-  transition: background-color 1s ease; */
   background: #333;
+  transition: background-color 1s ease;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
-  user-select: none;
   width: 100%;
   height: 100vh;
   overflow: auto;
+  user-select: none; /* Prevents user from selecting text on the app */
 }
 
 .app {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   height: 100vh;
   background-color: var(--pomodoro);
   transition: background-color 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .timer {
   margin-top: 2rem;
   padding: 20px;
   text-align: center;
-  display: grid;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
 }
 
 .mode-button {
@@ -89,7 +84,7 @@ body {
   box-shadow: inset 0px 0px 0px 20px transparent, 0px 0px 0px 20px beige;
 }
 
-.time-circle:before {
+.time-circle::before {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -162,26 +157,7 @@ body {
   border-width: initial;
   border-style: none;
   padding: 0px 12px;
-  border-radius: 4px;
-  transition: color 0.5s ease-in-out 0s;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
-}
-
-.ask-button {
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 0px;
-  font-size: 16px;
-  height: 55px;
-  text-transform: uppercase;
-  color: white;
-  font-weight: bold;
-  width: 200px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-width: initial;
-  border-style: none;
-  margin: 20px 0px 0px;
-  padding: 0px 12px;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: color 0.5s ease-in-out 0s;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
 }
@@ -189,14 +165,6 @@ body {
 button:focus,
 button:active {
   outline: none;
-}
-
-.button-down {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
 }
 
 /*Button goes down by `6px` when active class is toggled */

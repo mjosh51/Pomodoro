@@ -12,7 +12,7 @@ let interval;
 
 // Default mode on page load
 const permission = () => {
-  
+
   // Check if browser supports notification,
   // else this code block would not be executed
   if ('Notification' in window) {
@@ -27,14 +27,14 @@ const permission = () => {
         }
       });
     }
-    
+
   }
   // Conditional statements for reinforcing each mode
   // as a way to reference mode consistently
   const mode = timer.mode;
   if (mode === 'longBreak') {
     switchMode('longBreak');
-  } 
+  }
   else if (mode === 'shortBreak') {
     switchMode('shortBreak');
   }
@@ -116,7 +116,7 @@ const startTimer = () => {
       }
 
       // startTimer();
-      
+
     }
   }, 1000);
 }
@@ -130,33 +130,33 @@ const stopTimer = () => {
 
 
 const rotateProgress = () => {
-  
-  var quad1 = document.querySelector('.quad1'), 
-      quad2 = document.querySelector('.quad2'),
-      quad3 = document.querySelector('.quad3'),
-      quad4 = document.querySelector('.quad4'); 
+
+  var quad1 = document.querySelector('.quad1'),
+    quad2 = document.querySelector('.quad2'),
+    quad3 = document.querySelector('.quad3'),
+    quad4 = document.querySelector('.quad4');
   progress = timer[timer.mode] * 60 - timer.remainingTime.total;
 
 
-  if(progress <= 15){
+  if (progress <= 15) {
     quad1.setAttribute('style', 'transform: skew(' + progress * (-90 / 15) + 'deg)');
   }
-  else if (progress > 15 && progress <= 30){
+  else if (progress > 15 && progress <= 30) {
     quad1.setAttribute('style', 'transform: skew(-90deg)');
     quad2.setAttribute('style', 'transform: skewY(' + (progress - 15) * (90 / 15) + 'deg)');
   }
-  else if (progress > 30 && progress <= 45){
+  else if (progress > 30 && progress <= 45) {
     quad1.setAttribute('style', 'transform: skew(-90deg)');
     quad2.setAttribute('style', 'transform: skewY(90deg)');
     quad3.setAttribute('style', 'transform: skew(' + (progress - 30) * (-90 / 15) + 'deg)');
-  }  
-  else if (progress > 45 && progress <= 60){
+  }
+  else if (progress > 45 && progress <= 60) {
     quad1.setAttribute('style', 'transform: skew(-90deg)');
     quad2.setAttribute('style', 'transform: skewY(90deg)');
     quad3.setAttribute('style', 'transform: skew(-90deg)');
     quad4.setAttribute('style', 'transform: skewY(' + (progress - 45) * (90 / 15) + 'deg)');
   }
-  
+
 }
 
 const updateClock = () => {
@@ -170,8 +170,8 @@ const updateClock = () => {
   sec.textContent = seconds;
 
   rotateProgress();
-  
-  
+
+
   // Reflect Countdown in document title. 
   // This will help user to know remaining time
   // without the need to switch tabs
@@ -191,15 +191,15 @@ const switchMode = (mode) => {
     .querySelectorAll('button[data-mode]')
     .forEach(element => element.classList.remove('active'));
   document.querySelector(`[data-mode='${mode}']`).classList.add('active');
-  const main = document.querySelector('.app');
-  main.style.backgroundColor = `var(--${mode})`;
-  
+
+  document.body.style.backgroundColor = `var(--${mode})`;
+
   document
     .querySelectorAll('.same')
     .forEach(element => element.removeAttribute('style'));
 
   updateClock();
-    
+
 }
 
 const handleMode = (e) => {
@@ -228,3 +228,17 @@ const startButton = document.querySelector('#btn-js');
 startButton.addEventListener('click', start);
 const modeButtons = document.querySelector('#mode-buttons-js');
 modeButtons.addEventListener('click', handleMode);
+window.onscroll = function () {
+  let scroll = window.pageYOffset;
+  const modebtn = document.querySelectorAll('.mode-button');
+  if (scroll > 20 && scroll <= 200) {
+    
+    modebtn.forEach(element => {
+      element.style.color = '#333';
+    })
+  } else {
+    modebtn.forEach(element => {
+      element.style.color = '#fff';
+    })
+  }
+}

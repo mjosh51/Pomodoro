@@ -29,6 +29,8 @@ const permission = () => {
     }
     
   }
+  // Conditional statements for reinforcing each mode
+  // as a way to reference mode consistently
   const mode = timer.mode;
   if (mode === 'longBreak') {
     switchMode('longBreak');
@@ -38,8 +40,6 @@ const permission = () => {
   }
 
   else switchMode('pomodoro');
- 
-  
 };
 
 const getRemainingTime = (endTime) => {

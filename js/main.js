@@ -228,17 +228,18 @@ const startButton = document.querySelector('#btn-js');
 startButton.addEventListener('click', start);
 const modeButtons = document.querySelector('#mode-buttons-js');
 modeButtons.addEventListener('click', handleMode);
-window.onscroll = function () {
-  let scroll = window.pageYOffset;
-  const modebtn = document.querySelectorAll('.mode-button');
-  if (scroll > 20 && scroll <= 200) {
+// Commenting out for now, might later need it
+// window.onscroll = function () {
+//   let scroll = window.pageYOffset;
+//   const modebtn = document.querySelectorAll('.mode-button');
+//   if (scroll > 20 && scroll <= 200) {
     
-    modebtn.forEach(element => {
-      element.style.color = '#333';
-    })
-  } else {
-    modebtn.forEach(element => {
-      element.style.color = '#fff';
-    })
-  }
-}
+//     modebtn.forEach(element => {
+//       element.style.color = '#333';
+//     })
+//   } else {
+//     modebtn.forEach(element => {
+//       element.style.color = '#fff';
+//     })
+//   }
+// }

@@ -11,8 +11,8 @@ let interval;
 
 
 // Default mode on page load
-// const askButton = document.getElementById('ask-js');
 const permission = () => {
+  
   // Check if browser supports notification,
   // else this code block would not be executed
   if ('Notification' in window) {
@@ -27,9 +27,19 @@ const permission = () => {
         }
       });
     }
+    
+  }
+  const mode = timer.mode;
+  if (mode === 'longBreak') {
+    switchMode('longBreak');
+  } 
+  else if (mode === 'shortBreak') {
+    switchMode('shortBreak');
   }
 
-  switchMode('pomodoro');
+  else switchMode('pomodoro');
+ 
+  
 };
 
 const getRemainingTime = (endTime) => {
@@ -106,6 +116,7 @@ const startTimer = () => {
       }
 
       // startTimer();
+      
     }
   }, 1000);
 }

@@ -135,7 +135,7 @@ const rotateProgress = () => {
     quad2 = document.querySelector('.quad2'),
     quad3 = document.querySelector('.quad3'),
     quad4 = document.querySelector('.quad4');
-  progress = timer[timer.mode] * 60 - timer.remainingTime.total;
+  let progress = timer[timer.mode] * 60 - timer.remainingTime.total;
 
 
   if (progress <= 15) {

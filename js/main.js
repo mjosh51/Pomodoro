@@ -1,9 +1,9 @@
 // Creating an object to represent the Pomodoro App
 const timer = {
-  pomodoro: 1,
-  shortBreak: 1,
-  longBreak: 1,
-  longBreakInterval: 2,
+  pomodoro: 25,
+  shortBreak: 5,
+  longBreak: 15,
+  longBreakInterval: 4,
   sessions: 0,
 };
 

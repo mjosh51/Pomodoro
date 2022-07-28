@@ -80,18 +80,6 @@ body {
   opacity: 0.8;
 }
 
-.time-circle::before {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  text-align: center;
-  line-height: 200px;
-  border-radius: 50%;
-  /* z-index: 4; */
-}
-
 .same {
   position: absolute;
   height: 50%;
@@ -164,7 +152,7 @@ button:active {
 }
 
 /*Button goes down by `6px` when active class is toggled */
-.start-button.active, .ask-button.active {
+.start-button.active {
   transform: translateY(6px);
   box-shadow: none;
   outline: none;
@@ -179,8 +167,6 @@ p {
   margin: 1rem auto;
   font-size: 0.7rem;
 }
-
-
 
 /* End **********************************************
 *****P******O******M******O******D******R******O*********
